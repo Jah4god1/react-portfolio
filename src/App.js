@@ -1,42 +1,30 @@
 import React from 'react';
-import Header from './components/Header';
-import Navigation from './components/Navigation';
-import Project from './components/Project';
-import Footer from './components/Footer';
-import "./App.css";
+// import Switch  from 'react-switch';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navigation'
+import Home from './components/Home';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Navigation';
 
-const App = () => {
-return (
-<div>
-<Header />
-<Navigation />
-<main>
-<section id="about-me">
-<h2>About Me</h2>
-</section>
-<section id="portfolio">
-<h2>Portfolio</h2>
-<Project
-title="Project 1"
-image="eye.png"
-deployLink="https://www.google.com"
-repoLink="https://www.google.com"
-/>
 
-{/* Add more projects as needed */}
-</section>*/
-<section id="contact">
-<h2>Contact</h2>
-{/* Add contact form with fields for name, email address, and message */}
-</section>
-<section id="resume">
-<h2>Resume</h2>
-{/* Add link to downloadable resume and list of developer's proficiencies */}
-</section>
-</main>
-<Footer />
-</div>
-);
-};
+function App() {
+    return (
+    <Router>
+    <div className="bg-gray-100 min-h-screen">
+    <Navbar />
+    
+    <div className="container mx-auto px-4 py-8">
+    <Routes>
+    <Route path="/Home" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/portfolio" element={<Portfolio />} />
+    <Route path="/contact" element={<Contact />} />
+    </Routes>
+    </div>
+    </div>
+    </Router>
+    );
+    }
 
 export default App;
